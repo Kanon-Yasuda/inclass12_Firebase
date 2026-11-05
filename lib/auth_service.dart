@@ -30,6 +30,11 @@ class AuthService {
         }
         await user.updatePassword(newPassword);
     }
+    final credential = EmailAuthProvider.credential(
+        email: user.email!,
+        password: currentPassword,
+    );
 
+    await user.reauthenticateWithCredential(credential);
     User? get currentUser => _auth.currentUser;
 }
