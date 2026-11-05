@@ -1,3 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'auth_service.dart';
+
+class AuthenticationScreen extends StatefulWidget {
+  const AuthenticationScreen({super.key});
+
+  @override
+  State<AuthenticationScreen> createState() =>
+      _AuthenticationScreenState();
+}
+
+class _AuthenticationScreenState extends State<AuthenticationScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _authService = AuthService();
+
+  bool isRegistering = false;
+  bool isLoading = false;
+  String errorMessage = '';
 final _formKey = GlobalKey<FormState>();
 
 Form(
